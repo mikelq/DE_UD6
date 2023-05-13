@@ -6,6 +6,8 @@ public class CCuenta {
     private String cuenta;
     private double saldo;
     private double tipoInteres;
+    
+    private final double COMISION = 2;
 
 
     public CCuenta() {
@@ -31,9 +33,9 @@ public class CCuenta {
     public void retirar(double cantidad) throws Exception {
         if (cantidad <= 0)
             throw new Exception ("No se puede retirar una cantidad negativa");
-        if (saldo() < cantidad + 2)
+        if (saldo() < cantidad + COMISION)
             throw new Exception ("No se hay suficiente saldo");
-        setSaldo(getSaldo() - (cantidad + 2));
+        setSaldo(getSaldo() - (cantidad + COMISION));
     }
 
     /**
